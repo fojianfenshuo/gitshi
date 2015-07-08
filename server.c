@@ -60,7 +60,7 @@ void socketAccept()
 		printf("recv:[%d]||data:[%c]\n", flag, a);
 		if(a == 'c')
 		{
-			close(g_iSockAppFd);
+			close(g_iSockAppConn);
 			exit(0);
 		}
 	}

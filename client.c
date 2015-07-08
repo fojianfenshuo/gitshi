@@ -8,10 +8,10 @@
 #include <stdlib.h>
 #include <fcntl.h>
 #include <sys/shm.h>
+#include <signal.h>
 
 #define MYPORT  43210
 #define BUFFER_SIZE 1024
-typedef void (*sig_hand)(int)；
 void handofpipesig(int signal)
 {
 	printf("[%d]\n", signal);
@@ -45,10 +45,7 @@ int main()
     	printf("I want send [%c]\n", a);
         flag = send(sock_cli, &a, 1, 0);
         printf("send:[%d]||data:[%c]\n", flag, a);
- 		if(a == 'c')
- 		{
- 			close(sock_cli);
- 		}
+
         a++;
     }
 
