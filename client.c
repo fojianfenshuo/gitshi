@@ -18,7 +18,7 @@ int main()
     int sock_cli = socket(AF_INET,SOCK_STREAM, 0);
 
     struct sockaddr_in servaddr;
-    char a;
+    char a = 'a';
     int flag;
 
     memset(&servaddr, 0, sizeof(servaddr));
@@ -34,7 +34,13 @@ int main()
     {
     	sleep(1);
         flag = send(sock_cli, &a, 1, 0);
-        printf("send:[%d]||data:[%c]\n", a);
+        printf("send:[%d]||data:[%c]\n", flag, a);
+        a++;
+        if(a=='l')
+        {
+        	close(sock_cli);
+        	exit(0);
+        }
     }
 
     close(sock_cli);

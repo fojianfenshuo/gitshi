@@ -10,7 +10,6 @@
 #include <linux/types.h>
 #include <linux/videodev2.h>
 #include <setjmp.h>
-#include "/home/fojian/libjpg/jpeg-8c/jpeglib.h"
 #include <string.h>
 #include <pthread.h>
 #include <semaphore.h>
@@ -40,7 +39,7 @@ void SocketServerInit()
 		return;
 	}
 
-	if(listen(g_iSockServerFd,QUEUE) == -1)
+	if(listen(g_iSockServerFd,10) == -1)
 	{
 		perror("listen");
 		return;
@@ -61,4 +60,10 @@ void socketAccept()
 		printf("recv:[%d]||data:[%c]\n", flag, a);
 	}
 	return;
+}
+int main()
+{
+	SocketServerInit();
+	socketAccept();
+	return 0;
 }
