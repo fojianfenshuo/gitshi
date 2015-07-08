@@ -38,7 +38,7 @@ int main()
         printf("send:[%d]||data:[%c]\n", flag, a);
         if(a == 'l')
         {
-        	sleep(1);
+        	sleep(5);
         }
         a++;
     }
