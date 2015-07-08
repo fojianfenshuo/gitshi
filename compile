@@ -1,0 +1,3 @@
+gcc client.c -o ../obj_elf/goc
+gcc server.c -o ../obj_elf/gos
+
