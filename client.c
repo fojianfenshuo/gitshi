@@ -11,6 +11,14 @@
 
 #define MYPORT  43210
 #define BUFFER_SIZE 1024
+typedef void (*sig_hand)(int)；
+void handofpipesig(int signal)
+{
+	printf("[%d]\n", signal);
+	printf("%s\n", "Out of the process");
+	exit(0);
+	return;
+}
 
 int main()
 {
@@ -30,6 +38,7 @@ int main()
         perror("connect");
         exit(1);
     }
+    signal(SIGPIPE, handofpipesig);
     while (1)
     {
     	sleep(1);

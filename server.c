@@ -58,6 +58,11 @@ void socketAccept()
 		sleep(1);
 		flag = recv(g_iSockAppConn, &a, 1, 0);
 		printf("recv:[%d]||data:[%c]\n", flag, a);
+		if(a == 'c')
+		{
+			close(g_iSockAppFd);
+			exit(0);
+		}
 	}
 	return;
 }
