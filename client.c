@@ -35,12 +35,11 @@ int main()
     	sleep(1);
         flag = send(sock_cli, &a, 1, 0);
         printf("send:[%d]||data:[%c]\n", flag, a);
-        a++;
-        if(a=='l')
+        if(a == 'l')
         {
-        	close(sock_cli);
-        	exit(0);
+        	sleep(1);
         }
+        a++;
     }
 
     close(sock_cli);
